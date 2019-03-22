@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: pagerduty
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pagerduty
+  template:
+    metadata:
+      labels:
+        app: pagerduty
+    spec:
+      containers:
+        - name: pagerduty
+          image: pagerduty:1.0
+          ports:
+            - containerPort: 80
